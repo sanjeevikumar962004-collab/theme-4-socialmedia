@@ -13,6 +13,33 @@
 
 <body>
 
+    <!-- Preloader -->
+    <div class="earth">
+        <div class="earth-loader">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <path transform="translate(100 100)"
+                    d="M29.4,-17.4C33.1,1.8,27.6,16.1,11.5,31.6C-4.7,47,-31.5,63.6,-43,56C-54.5,48.4,-50.7,16.6,-41,-10.9C-31.3,-38.4,-15.6,-61.5,-1.4,-61C12.8,-60.5,25.7,-36.5,29.4,-17.4Z"
+                    fill="#7CC133"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <path transform="translate(100 100)"
+                    d="M31.7,-55.8C40.3,-50,45.9,-39.9,49.7,-29.8C53.5,-19.8,55.5,-9.9,53.1,-1.4C50.6,7.1,43.6,14.1,41.8,27.6C40.1,41.1,43.4,61.1,37.3,67C31.2,72.9,15.6,64.8,1.5,62.2C-12.5,59.5,-25,62.3,-31.8,56.7C-38.5,51.1,-39.4,37.2,-49.3,26.3C-59.1,15.5,-78,7.7,-77.6,0.2C-77.2,-7.2,-57.4,-14.5,-49.3,-28.4C-41.2,-42.4,-44.7,-63,-38.5,-70.1C-32.2,-77.2,-16.1,-70.8,-2.3,-66.9C11.6,-63,23.1,-61.5,31.7,-55.8Z"
+                    fill="#7CC133"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <path transform="translate(100 100)"
+                    d="M30.6,-49.2C42.5,-46.1,57.1,-43.7,67.6,-35.7C78.1,-27.6,84.6,-13.8,80.3,-2.4C76.1,8.9,61.2,17.8,52.5,29.1C43.8,40.3,41.4,53.9,33.7,64C26,74.1,13,80.6,2.2,76.9C-8.6,73.1,-17.3,59,-30.6,52.1C-43.9,45.3,-61.9,45.7,-74.1,38.2C-86.4,30.7,-92.9,15.4,-88.6,2.5C-84.4,-10.5,-69.4,-20.9,-60.7,-34.6C-52.1,-48.3,-49.8,-65.3,-40.7,-70C-31.6,-74.8,-15.8,-67.4,-3.2,-61.8C9.3,-56.1,18.6,-52.3,30.6,-49.2Z"
+                    fill="#7CC133"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                <path transform="translate(100 100)"
+                    d="M39.4,-66C48.6,-62.9,51.9,-47.4,52.9,-34.3C53.8,-21.3,52.4,-10.6,54.4,1.1C56.3,12.9,61.7,25.8,57.5,33.2C53.2,40.5,39.3,42.3,28.2,46C17,49.6,8.5,55.1,1.3,52.8C-5.9,50.5,-11.7,40.5,-23.6,37.2C-35.4,34,-53.3,37.5,-62,32.4C-70.7,27.4,-70.4,13.7,-72.4,-1.1C-74.3,-15.9,-78.6,-31.9,-73.3,-43C-68.1,-54.2,-53.3,-60.5,-39.5,-60.9C-25.7,-61.4,-12.9,-56,1.1,-58C15.1,-59.9,30.2,-69.2,39.4,-66Z"
+                    fill="#7CC133"></path>
+            </svg>
+        </div>
+        <p>Connecting...</p>
+    </div>
+
     <!-- Sticky Navbar -->
     <header class="navbar glass-panel">
         <a href="index.html" class="nav-brand">
@@ -28,12 +55,13 @@
             <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
                 <i class="fas fa-moon"></i>
             </button>
-            <a href="login.html" class="neu-button primary" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none;">Login</a>
+            <a href="login.html" class="neu-button primary"
+                style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none;">Login</a>
             <button class="icon-btn" aria-label="Messages">
                 <i class="fas fa-envelope"></i>
             </button>
             <div class="user-profile">
-                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1507003211169-0a1dd7228f2d&output=webp&q=50&af" alt="Profile" class="avatar">
+                <img src="images/avatar-male-1.webp" alt="Profile" class="avatar">
             </div>
         </div>
 
@@ -88,8 +116,8 @@
             <!-- Create Post Input Area -->
             <section class="neu-card create-post-area">
                 <div class="d-flex gap-md" style="margin-bottom: var(--spacing-md);">
-                    <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1544005313-94ddf0286df2&output=webp&q=50&af" alt="Profile" class="avatar">
-                    <textarea class="neu-input" placeholder="What's going on, Alex?"></textarea>
+                    <img src="images/avatar-female-1.webp" alt="Profile" class="avatar">
+                    <textarea id="post-textarea" class="neu-input" placeholder="What's going on, Alex?"></textarea>
                 </div>
                 <div class="d-flex justify-between align-center">
                     <div class="d-flex gap-sm text-secondary" style="font-size: 1.2rem; cursor:pointer;">
@@ -103,7 +131,7 @@
                             onmouseover="this.style.color='var(--primary-color)'"
                             onmouseout="this.style.color='var(--text-secondary)'"></i>
                     </div>
-                    <button class="neu-button primary">Post</button>
+                    <button id="post-button" class="neu-button primary">Post</button>
                 </div>
             </section>
 
@@ -111,7 +139,7 @@
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1506794778202-cad84cf45f1d&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-male-2.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Jessica Martinez</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">2 hrs ago</span>
@@ -124,8 +152,7 @@
                     Just wrapped up an incredible workshop on UI constraints and Neumorphism! The future of web
                     aesthetics is looking beautifully tactile. ✨ #DesignThinking #WebDev
                 </p>
-                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1558655146-d09347e92766&output=webp&q=50&af"
-                    alt="Workshop"
+                <img src="images/post-design.webp" alt="Workshop"
                     style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
 
                 <div class="d-flex justify-between text-secondary"
@@ -142,7 +169,7 @@
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1472099645785-5658abf4ff4e&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-male-3.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">David Chen</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">5 hrs ago</span>
@@ -171,7 +198,7 @@
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-2.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Marcus Johnson</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">8 hrs ago</span>
@@ -205,7 +232,7 @@
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-2.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Elena Rodriguez</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">Yesterday</span>
@@ -222,8 +249,8 @@
                 <a href="#" style="text-decoration: none;">
                     <div class="d-flex align-center gap-md"
                         style="background: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--spacing-md);">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1550751827-4bd374c3f58b&output=webp&q=50&af"
-                            alt="Cyberpunk Server" style="width: 120px; height: 120px; object-fit: cover;">
+                        <img src="images/post-tech.webp" alt="Cyberpunk Server"
+                            style="width: 120px; height: 120px; object-fit: cover;">
                         <div style="padding: var(--spacing-sm); padding-right: var(--spacing-md);">
                             <h5 style="color: var(--text-primary); margin-bottom: 4px;">AI Accessibility in Modern UI
                             </h5>
@@ -248,155 +275,198 @@
                 </div>
             </article>
 
-        
+
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1438761681033-6461ffad8d80&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-3.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Maya Lin</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">3 hrs ago</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
-                    Just discovered a massive performance bottleneck in our React app. Memoization isn't always the answer! 💡
+                    Just discovered a massive performance bottleneck in our React app. Memoization isn't always the
+                    answer! 💡
                 </p>
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 450</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 85</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 450</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 85</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
 
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1438761681033-6461ffad8d80&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-3.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Chris Walker</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">5 hrs ago</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
-                    The new smart home integration project is coming along nicely. Check out this sleek dashboard layout!
+                    The new smart home integration project is coming along nicely. Check out this sleek dashboard
+                    layout!
                 </p>
-                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1558655146-d09347e92766&output=webp&q=50&af" alt="Smart Home" style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 1.8k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 220</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <img src="images/post-design.webp" alt="Smart Home"
+                    style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 1.8k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 220</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
 
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-2.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Ethan Hunt</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">Yesterday</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
-                    Security must be a priority from day zero, not an afterthought right before production deploy. Let's talk about secure CI/CD pipelines. 🔒
+                    Security must be a priority from day zero, not an afterthought right before production deploy. Let's
+                    talk about secure CI/CD pipelines. 🔒
                 </p>
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 6.2k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 890</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 6.2k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 890</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
 
-        
+
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1472099645785-5658abf4ff4e&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-male-3.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Alex Rivera</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">2 hrs ago</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
-                    Just wrapped up a session on scaling microservices. Remember: sometimes a monolith is actually exactly what you need to start with.
+                    Just wrapped up a session on scaling microservices. Remember: sometimes a monolith is actually
+                    exactly what you need to start with.
                 </p>
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 1.1k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 150</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 1.1k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 150</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
 
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1472099645785-5658abf4ff4e&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-male-3.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Sam Jenkins</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">4 hrs ago</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
                     Loving the new typography tools in the latest design software update! ✒️
                 </p>
-                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1544383835-bda2bc66a55d&output=webp&q=50&af" alt="Typography" style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 2.4k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 320</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <img src="images/post-blog.webp" alt="Typography"
+                    style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 2.4k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 320</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
 
             <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1544005313-94ddf0286df2&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-1.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Leo Thompson</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">6 hrs ago</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
                     Anyone else finding that their productivity peaks around 2 AM? 🦉 #nightowl
                 </p>
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 5.6k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 1.2k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 5.6k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 1.2k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
-			
-			<article class="neu-card post-card">
+
+            <article class="neu-card post-card">
                 <div class="d-flex justify-between align-center" style="margin-bottom: var(--spacing-sm);">
                     <div class="d-flex gap-md align-center">
-                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="User" class="avatar">
+                        <img src="images/avatar-female-2.webp" alt="User" class="avatar">
                         <div>
                             <h4 style="font-family: var(--font-main); font-size: 1rem;">Nora West</h4>
                             <span class="text-secondary" style="font-size: 0.8rem;">12 hrs ago</span>
                         </div>
                     </div>
-                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="icon-btn" style="box-shadow:none; background:transparent;"><i
+                            class="fas fa-ellipsis-h"></i></button>
                 </div>
                 <p style="margin-bottom: var(--spacing-md);">
-                    Just launched my new portfolio site built entirely with vanilla HTML/CSS and some light JS. No frameworks! Feels good to go back to basics. 🌐
+                    Just launched my new portfolio site built entirely with vanilla HTML/CSS and some light JS. No
+                    frameworks! Feels good to go back to basics. 🌐
                 </p>
-				<img src="https://wsrv.nl/?url=images.unsplash.com/photo-1498050108023-c5249f4df085&output=webp&q=50&af" alt="Coding" style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
-                <div class="d-flex justify-between text-secondary" style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-heart"></i> 8.9k</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="far fa-comment"></i> 430</button>
-                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i class="fas fa-share-alt"></i> Share</button>
+                <img src="images/post-code.webp" alt="Coding"
+                    style="border-radius: var(--radius-md); margin-bottom: var(--spacing-md); width: 100%; max-height: 400px; object-fit: cover;">
+                <div class="d-flex justify-between text-secondary"
+                    style="border-top: 1px solid var(--border-color); padding-top: var(--spacing-sm);">
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-heart"></i> 8.9k</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="far fa-comment"></i> 430</button>
+                    <button class="neu-button" style="box-shadow:none; background:transparent; padding:0.5rem 1rem;"><i
+                            class="fas fa-share-alt"></i> Share</button>
                 </div>
             </article>
 
@@ -441,7 +511,7 @@
                 <ul class="flex-column gap-md">
                     <li class="d-flex justify-between align-center">
                         <div class="d-flex gap-sm align-center">
-                            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1472099645785-5658abf4ff4e&output=webp&q=50&af" alt="User" class="avatar"
+                            <img src="images/avatar-male-3.webp" alt="User" class="avatar"
                                 style="width: 32px; height: 32px;">
                             <span style="font-size: 0.9rem; font-weight: 500;">Sophie Turner</span>
                         </div>
@@ -449,7 +519,7 @@
                     </li>
                     <li class="d-flex justify-between align-center">
                         <div class="d-flex gap-sm align-center">
-                            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1580489944761-15a19d654956&output=webp&q=50&af" alt="User" class="avatar"
+                            <img src="images/avatar-male-2.webp" alt="User" class="avatar"
                                 style="width: 32px; height: 32px;">
                             <span style="font-size: 0.9rem; font-weight: 500;">Miles Davis</span>
                         </div>
@@ -464,7 +534,8 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" style="height: 40px; width: fit-content;"></a>
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly"
+                        style="height: 40px; width: fit-content;"></a>
                 <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
                     community.

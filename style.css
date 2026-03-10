@@ -1000,7 +1000,7 @@ body.theme-alt {
 }
 
 .earth p {
-    color: black;
+    color: var(--text-primary);
     display: flex;
     justify-content: center;
     align-items: center;

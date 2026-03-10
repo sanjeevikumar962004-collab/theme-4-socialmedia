@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | About Us</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .story-section {
+            text-align: center;
+            padding: var(--spacing-xxl) var(--spacing-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-heading {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.1;
+        }
+
+        .story-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--glass-border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: var(--radius-full);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--surface-color);
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+            transition: all var(--transition-fast);
+        }
+
+        .timeline-item:hover::after {
+            background-color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            transition: transform var(--transition-normal);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .timeline-right {
+                left: 0%;
+            }
+        }
+
+        /* Meet the Team */
+        .team-section {
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+        }
+
+        .team-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: var(--spacing-md);
+            border: 4px solid var(--surface-color);
+            box-shadow: var(--neu-shadow);
+            transition: all var(--transition-normal);
+        }
+
+        .team-member:hover .team-avatar {
+            transform: translateY(-10px);
+            box-shadow: var(--neu-shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links .icon-btn {
+            width: 36px;
+            height: 36px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Navbar -->
+    <header class="navbar glass-panel">
+        <a href="index.html" class="nav-brand">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+        </a>
+
+        <div class="nav-search neu-input-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" class="neu-input" placeholder="Search Stackly...">
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="neu-button primary" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none;">Login</a>
+            <button class="icon-btn" aria-label="Messages">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <div class="user-profile">
+                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1507003211169-0a1dd7228f2d&output=webp&q=50&af" alt="Profile" class="avatar">
+            </div>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="app-layout-2col">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar-left" id="sidebar-left">
+            <nav class="nav-links">
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle w-100 justify-between">
+                        <div class="d-flex align-center gap-md">
+                            <i class="fas fa-home"></i> Home
+                        </div>
+                        <i class="fas fa-chevron-down transition-fast"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="index.html" class="nav-link">Home 1 (Feed)</a>
+                        <a href="index2.html" class="nav-link">Home 2</a>
+                    </div>
+                </div>
+                <a href="reels.html" class="nav-link">
+                    <i class="fas fa-film"></i> Reels
+                </a>
+                <a href="services.html" class="nav-link">
+                    <i class="fas fa-concierge-bell"></i> Services
+                </a>
+                <a href="about.html" class="nav-link active">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="blog.html" class="nav-link">
+                    <i class="fas fa-newspaper"></i> Blog
+                </a>
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope-open-text"></i> Contact
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Story Section -->
+            <section class="story-section">
+                <h1 class="story-heading">Redefining Digital Connections</h1>
+                <p class="text-secondary" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                    At Stackly, we believe that social media should be a tranquil, aesthetic, and meaningful space.
+                    We cut through the noise to bring you closer to what truly matters—authentic interactions, beautiful
+                    design,
+                    and a community that inspires.
+                </p>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="timeline-section">
+                <h2 class="section-title text-center text-primary">Our Evolution</h2>
+                <div class="timeline">
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content neu-card">
+                            <h3 class="text-primary">2022</h3>
+                            <h4 style="margin-bottom: var(--spacing-sm);">The Alpha Launch</h4>
+                            <p class="text-secondary">Stackly began as an invite-only platform focusing on high-fidelity
+                                image sharing and typography.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-right">
+                        <div class="timeline-content neu-card">
+                            <h3 class="text-primary">2024</h3>
+                            <h4 style="margin-bottom: var(--spacing-sm);">Introduction of Services</h4>
+                            <p class="text-secondary">We rolled out creator tools and ad management, enabling thousands
+                                to monetize effectively.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content neu-card">
+                            <h3 class="text-primary">2026</h3>
+                            <h4 style="margin-bottom: var(--spacing-sm);">The Neumorphic Rebirth</h4>
+                            <p class="text-secondary">Fully redesigned the interface with glassmorphic elements and dark
+                                mode, setting a new standard for UI.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="team-section">
+                <h2 class="section-title text-primary">Meet the Visionaries</h2>
+                <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">The brilliant minds shaping the
+                    future of aesthetic digital interactions.</p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1580489944761-15a19d654956&output=webp&q=50&af" alt="Team Member" class="team-avatar">
+                        <h3 style="font-family: var(--font-main);">Elena Rostova</h3>
+                        <p class="text-secondary" style="font-size: 0.9rem;">CEO & Founder</p>
+                        <div class="social-links">
+                            <button class="icon-btn"><i class="fab fa-twitter"></i></button>
+                            <button class="icon-btn"><i class="fab fa-linkedin-in"></i></button>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="Team Member" class="team-avatar">
+                        <h3 style="font-family: var(--font-main);">Marcus Wright</h3>
+                        <p class="text-secondary" style="font-size: 0.9rem;">Lead UI Engineer</p>
+                        <div class="social-links">
+                            <button class="icon-btn"><i class="fab fa-github"></i></button>
+                            <button class="icon-btn"><i class="fab fa-dribbble"></i></button>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="Team Member" class="team-avatar">
+                        <h3 style="font-family: var(--font-main);">Sarah Jenkins</h3>
+                        <p class="text-secondary" style="font-size: 0.9rem;">Head of Community</p>
+                        <div class="social-links">
+                            <button class="icon-btn"><i class="fab fa-instagram"></i></button>
+                            <button class="icon-btn"><i class="fas fa-envelope"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" style="height: 40px; width: fit-content;"></a>
+                <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
+                    Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
+                    community.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Platform</h4>
+                <a href="index.html">Feed</a>
+                <a href="reels.html">Reels</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#">Explore</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Community Guidelines</a>
+                <a href="#">Help Center</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Stackly Inc. All rights reserved. Designed with Neumorphism aesthetics.
+        </div>
+    </footer>
+
+    <!-- Main Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>

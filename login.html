@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: var(--spacing-md);
+            background-color: var(--bg-color);
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 450px;
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .auth-logo {
+            margin-bottom: var(--spacing-lg);
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .auth-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .auth-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .auth-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.9rem;
+        }
+
+        .auth-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .auth-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <div class="neu-card auth-card">
+            <a href="index.html">
+                <img src="./stackly - Copy.webp" alt="Stackly Logo" class="auth-logo">
+            </a>
+            <h1 class="auth-title">Welcome Back</h1>
+            <p class="auth-subtitle">Log in to your Stackly account to continue</p>
+
+            <form action="error.html" method="GET" id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="neu-input w-100" placeholder="user@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div style="position: relative;">
+                        <input type="password" id="password" name="password" class="neu-input w-100"
+                            style="padding-right: 40px;" placeholder="Enter your password">
+                        <i class="fas fa-eye toggle-password"
+                            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-secondary);"></i>
+                    </div>
+                </div>
+
+                <div class="auth-links">
+                    <label class="d-flex align-center gap-sm text-secondary" style="cursor: pointer;">
+                        <input type="checkbox" style="accent-color: var(--primary-color);"> Remember me
+                    </label>
+                    <a href="forgot.html" class="auth-link">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="neu-button primary auth-btn">Log In</button>
+            </form>
+
+            <p class="text-secondary" style="margin-top: var(--spacing-lg); font-size: 0.95rem;">
+                Don't have an account? <a href="signup.html" class="auth-link">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Theme Logic (if any) and Form Validation -->
+    <script src="app.js"></script>
+    <script src="form_validation.js"></script>
+</body>
+
+</html>

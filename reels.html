@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Reels</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sticky Navbar -->
+    <header class="navbar glass-panel">
+        <a href="index.html" class="nav-brand">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+        </a>
+
+        <div class="nav-search neu-input-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" class="neu-input" placeholder="Search Stackly...">
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="neu-button primary" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none;">Login</a>
+            <button class="icon-btn" aria-label="Messages">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <div class="user-profile">
+                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1580489944761-15a19d654956&output=webp&q=50&af" alt="Profile" class="avatar">
+            </div>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="app-layout-2col">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar-left" id="sidebar-left">
+            <nav class="nav-links">
+                <div class="nav-dropdown">
+                    <button class="nav-link nav-dropdown-toggle w-100 justify-between">
+                        <div class="d-flex align-center gap-md">
+                            <i class="fas fa-home"></i> Home
+                        </div>
+                        <i class="fas fa-chevron-down transition-fast"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="index.html" class="nav-link">Home 1 (Feed)</a>
+                        <a href="index2.html" class="nav-link">Home 2</a>
+                    </div>
+                </div>
+                <a href="reels.html" class="nav-link active">
+                    <i class="fas fa-film"></i> Reels
+                </a>
+                <a href="services.html" class="nav-link">
+                    <i class="fas fa-concierge-bell"></i> Services
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="blog.html" class="nav-link">
+                    <i class="fas fa-newspaper"></i> Blog
+                </a>
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="./contact.html" class="nav-link">
+                    <i class="fas fa-envelope-open-text"></i> Contact
+                </a>
+            </nav>
+
+            <button class="neu-button primary w-100" style="margin-top: var(--spacing-md);">
+                Create Post
+            </button>
+        </aside>
+
+        <!-- Main Content (Reels) -->
+        <main class="main-content" style="padding: 0; align-items: center;">
+            <div class="reels-container" style="width: 100%; max-width: 450px;">
+
+                <!-- Reel 1 -->
+                <div class="reel-card">
+                    <!-- Standard placeholder video, 9:16 aspect ratio if possible -->
+                    <video class="reel-video" loop muted playsinline crossOrigin="anonymous">
+                        <source src="./reels/13606688_1080_1920_30fps%20(1).mp4" type="video/mp4">
+                    </video>
+
+                    <i class="fas fa-play play-icon-overlay"></i>
+
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-handle">
+                                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1507003211169-0a1dd7228f2d&output=webp&q=50&af" alt="User" class="avatar"
+                                    style="border-radius: 50%;">
+                                @jessicadesigns
+                            </div>
+                            <div class="caption">
+                                Exploring neumorphism trends in 2026! What do you think? ✨ #design #ui #ux
+                            </div>
+                            <div class="audio-track">
+                                <i class="fas fa-music"></i> Original Audio - Jessica Martinez
+                            </div>
+                        </div>
+
+                        <div class="reel-actions">
+                            <button class="reel-action-btn">
+                                <i class="far fa-heart"></i>
+                                <span>12K</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="far fa-comment"></i>
+                                <span>458</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="far fa-paper-plane"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 2 -->
+                <div class="reel-card">
+                    <!-- Pexels vertical video -->
+                    <video class="reel-video" loop muted playsinline crossOrigin="anonymous">
+                        <source src="./reels/4738047-uhd_2160_4096_25fps%20(1).mp4" type="video/mp4">
+                    </video>
+
+                    <i class="fas fa-play play-icon-overlay"></i>
+
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-handle">
+                                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1507003211169-0a1dd7228f2d&output=webp&q=50&af" alt="User" class="avatar"
+                                    style="border-radius: 50%;">
+                                @davidchen_tech
+                            </div>
+                            <div class="caption">
+                                Day in the life of a frontend dev. 💻☕ #tech #coding #vlog
+                            </div>
+                            <div class="audio-track">
+                                <i class="fas fa-music"></i> Chill Vibes - Lofi Beat
+                            </div>
+                        </div>
+
+                        <div class="reel-actions">
+                            <button class="reel-action-btn">
+                                <i class="far fa-heart"></i>
+                                <span>8.5K</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="far fa-comment"></i>
+                                <span>120</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="far fa-paper-plane"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 3 -->
+                <div class="reel-card">
+                    <video class="reel-video" loop muted playsinline crossOrigin="anonymous">
+                        <!-- Pexels vertical video -->
+                        <source src="./reels/8296234-hd_1080_1920_25fps%20(1)%20(1).mp4" type="video/mp4">
+                    </video>
+
+                    <i class="fas fa-play play-icon-overlay"></i>
+
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-handle">
+                                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1506794778202-cad84cf45f1d&output=webp&q=50&af" alt="User" class="avatar"
+                                    style="border-radius: 50%;">
+                                @sophieturner.art
+                            </div>
+                            <div class="caption">
+                                Time lapse of my latest digital portrait. 🎨🖌️ #art #timelapse
+                            </div>
+                            <div class="audio-track">
+                                <i class="fas fa-music"></i> Aesthetic Mix - DJ Unknown
+                            </div>
+                        </div>
+
+                        <div class="reel-actions">
+                            <button class="reel-action-btn">
+                                <i class="far fa-heart"></i>
+                                <span>34K</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="far fa-comment"></i>
+                                <span>1.2K</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="far fa-paper-plane"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="reel-action-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <!-- Reel 4 -->
+                <div class="reel-card">
+                    <video class="reel-video" loop muted playsinline crossOrigin="anonymous">
+                        <source src="./reels/WhatsApp%20Video%202026-03-10%20at%2011%20(2).mp4" type="video/mp4">
+                    </video>
+                    <i class="fas fa-play play-icon-overlay"></i>
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-handle"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1472099645785-5658abf4ff4e&output=webp&q=50&af" alt="User" class="avatar" style="border-radius: 50%;"> @maya_lin</div>
+                            <div class="caption">Finding peace in the city skyline layout. 🌆 #city #vlog</div>
+                            <div class="audio-track"><i class="fas fa-music"></i> City Lights - Maya</div>
+                        </div>
+                        <div class="reel-actions">
+                            <button class="reel-action-btn"><i class="far fa-heart"></i><span>4.2K</span></button>
+                            <button class="reel-action-btn"><i class="far fa-comment"></i><span>180</span></button>
+                            <button class="reel-action-btn"><i class="far fa-paper-plane"></i><span>Share</span></button>
+                            <button class="reel-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 5 -->
+                <div class="reel-card">
+                    <video class="reel-video" loop muted playsinline crossOrigin="anonymous">
+                        <source src="./reels/WhatsApp%20Video%202026-03-10%20at%2011.mp4" type="video/mp4">
+                    </video>
+                    <i class="fas fa-play play-icon-overlay"></i>
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-handle"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1438761681033-6461ffad8d80&output=webp&q=50&af" alt="User" class="avatar" style="border-radius: 50%;"> @chris_walker</div>
+                            <div class="caption">Testing out the new animation library! 🐇 #animation #testing</div>
+                            <div class="audio-track"><i class="fas fa-music"></i> Demo Track - Free</div>
+                        </div>
+                        <div class="reel-actions">
+                            <button class="reel-action-btn"><i class="far fa-heart"></i><span>12.8K</span></button>
+                            <button class="reel-action-btn"><i class="far fa-comment"></i><span>520</span></button>
+                            <button class="reel-action-btn"><i class="far fa-paper-plane"></i><span>Share</span></button>
+                            <button class="reel-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 6 -->
+                <div class="reel-card">
+                    <video class="reel-video" loop muted playsinline crossOrigin="anonymous">
+                        <source src="./reels/13606688_1080_1920_30fps%20(1).mp4" type="video/mp4">
+                    </video>
+                    <i class="fas fa-play play-icon-overlay"></i>
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-handle"><img src="https://wsrv.nl/?url=images.unsplash.com/photo-1438761681033-6461ffad8d80&output=webp&q=50&af" alt="User" class="avatar" style="border-radius: 50%;"> @ethan_h</div>
+                            <div class="caption">Fantasy CGI Trailer rendering test. 🐲 #cgi #blender #render</div>
+                            <div class="audio-track"><i class="fas fa-music"></i> Epic Trailer Score</div>
+                        </div>
+                        <div class="reel-actions">
+                            <button class="reel-action-btn"><i class="far fa-heart"></i><span>88.1K</span></button>
+                            <button class="reel-action-btn"><i class="far fa-comment"></i><span>2.4K</span></button>
+                            <button class="reel-action-btn"><i class="far fa-paper-plane"></i><span>Share</span></button>
+                            <button class="reel-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" style="height: 40px; width: fit-content;"></a>
+                <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
+                    Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
+                    community.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Platform</h4>
+                <a href="index.html">Feed</a>
+                <a href="reels.html">Reels</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#">Explore</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Community Guidelines</a>
+                <a href="#">Help Center</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Stackly Inc. All rights reserved. Designed with Neumorphism aesthetics.
+        </div>
+    </footer>
+
+    <!-- Main Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>

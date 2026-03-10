@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Dashboard</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dashboard Tabs */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .metric-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--shadow-dark);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-top: var(--spacing-sm);
+            box-shadow: var(--neu-shadow-inset);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--radius-full);
+            width: 0;
+            /* Animated dynamically */
+            transition: width 1s ease-in-out;
+        }
+
+        /* Activity Table */
+        .activity-table-container {
+            overflow-x: auto;
+        }
+
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .activity-table th {
+            padding: var(--spacing-md);
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .activity-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .activity-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        [data-theme="dark"] .activity-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+        }
+
+        .status-pending {
+            background: rgba(234, 179, 8, 0.1);
+            color: #eab308;
+        }
+
+        /* Settings Form */
+        .settings-form {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .settings-form label {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Navbar -->
+    <header class="navbar glass-panel">
+        <a href="index.html" class="nav-brand">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+        </a>
+
+        <div class="nav-search neu-input-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" class="neu-input" placeholder="Search Stackly...">
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="neu-button primary" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none;">Login</a>
+            <button class="icon-btn" aria-label="Messages">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <div class="user-profile">
+                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1494790108377-be9c29b29330&output=webp&q=50&af" alt="Profile" class="avatar">
+            </div>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="app-layout-2col">
+        <!-- Dashboard Specific Sidebar -->
+        <aside class="sidebar-left" id="sidebar-left">
+            <nav class="nav-links">
+                <button class="nav-link active tab-btn" data-tab="overview">
+                    <i class="fas fa-home"></i> Overview
+                </button>
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Feed
+                </a>
+                <a href="reels.html" class="nav-link">
+                    <i class="fas fa-film"></i> Reels
+                </a>
+                <button class="nav-link tab-btn" data-tab="analytics">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+                <button class="nav-link tab-btn" data-tab="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </button>
+                <a href="index.html" class="nav-link" style="margin-top: auto; color: var(--danger-color);">
+                    <i class="fas fa-sign-out-alt"></i> Back to Feed
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- OVERVIEW TAB -->
+            <section id="overview" class="tab-content active">
+                <h2 class="section-title">Welcome back, Alex.</h2>
+                <p class="text-secondary" style="margin-bottom: var(--spacing-lg);">Here's what is happening with your
+                    account today.</p>
+
+                <div class="metrics-grid">
+                    <div class="neu-card metric-card">
+                        <div class="metric-header">
+                            <span>Total Followers</span>
+                            <i class="fas fa-users" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="metric-value">12.4k</div>
+                        <div class="text-secondary" style="font-size: 0.85rem;"><span class="text-primary">+4.2%</span>
+                            from last week</div>
+                    </div>
+
+                    <div class="neu-card metric-card">
+                        <div class="metric-header">
+                            <span>Profile Views</span>
+                            <i class="fas fa-eye" style="color: var(--accent-color);"></i>
+                        </div>
+                        <div class="metric-value">458K</div>
+                        <div class="text-secondary" style="font-size: 0.85rem;"><span class="text-primary">+12%</span>
+                            from last week</div>
+                    </div>
+
+                    <div class="neu-card metric-card">
+                        <div class="metric-header">
+                            <span>Engagement Rate</span>
+                            <i class="fas fa-fire" style="color: #f59e0b;"></i>
+                        </div>
+                        <div class="metric-value">8.7%</div>
+                        <div class="text-secondary" style="font-size: 0.85rem;"><span
+                                style="color: var(--danger-color);">-1.2%</span> from last week</div>
+                    </div>
+                </div>
+
+                <div class="neu-card">
+                    <h3 style="margin-bottom: var(--spacing-md);">Weekly Goals</h3>
+
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <div class="d-flex justify-between" style="margin-bottom: var(--spacing-xs);">
+                            <span class="text-secondary">Publish 5 Articles</span>
+                            <strong>3/5</strong>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="d-flex justify-between" style="margin-bottom: var(--spacing-xs);">
+                            <span class="text-secondary">Reach 15k Followers</span>
+                            <strong>12.4k / 15k</strong>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANALYTICS TAB -->
+            <section id="analytics" class="tab-content">
+                <h2 class="section-title">Recent Activity</h2>
+
+                <div class="neu-card activity-table-container">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Item</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Campaign Launch</td>
+                                <td>#Tech2026 Promo</td>
+                                <td>Oct 12, 2026</td>
+                                <td><span class="status-badge status-completed">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Payout Request</td>
+                                <td>$450.00</td>
+                                <td>Oct 10, 2026</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Post Published</td>
+                                <td>Neumorphism Guide</td>
+                                <td>Oct 08, 2026</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Subscription</td>
+                                <td>Pro Plan Renewed</td>
+                                <td>Oct 01, 2026</td>
+                                <td><span class="status-badge status-completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SETTINGS TAB -->
+            <section id="settings" class="tab-content">
+                <h2 class="section-title">Account Settings</h2>
+
+                <div class="neu-card">
+                    <form class="settings-form" onsubmit="event.preventDefault();">
+                        <div class="d-flex align-center gap-md" style="margin-bottom: var(--spacing-md);">
+                            <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1544005313-94ddf0286df2&output=webp&q=50&af" alt="Avatar" class="avatar"
+                                style="width: 80px; height: 80px;">
+                            <button class="neu-button">Change Avatar</button>
+                        </div>
+
+                        <div>
+                            <label>Display Name</label>
+                            <input type="text" class="neu-input" value="Alex Johnson">
+                        </div>
+
+                        <div>
+                            <label>Email Address</label>
+                            <input type="email" class="neu-input" value="alex.j@stackly.dev" readonly>
+                        </div>
+
+                        <div>
+                            <label>Bio</label>
+                            <textarea
+                                class="neu-input">Frontend Developer & Design Enthusiast building the future of web interfaces.</textarea>
+                        </div>
+
+                        <div style="margin-top: var(--spacing-sm);">
+                            <button class="neu-button primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" style="height: 40px; width: fit-content;"></a>
+                <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
+                    Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
+                    community.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Platform</h4>
+                <a href="index.html">Feed</a>
+                <a href="reels.html">Reels</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#">Explore</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Community Guidelines</a>
+                <a href="#">Help Center</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Stackly Inc. All rights reserved. Designed with Neumorphism aesthetics.
+        </div>
+    </footer>
+
+    <!-- Main Logic -->
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all buttons and content
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+
+                    // Add active to clicked button
+                    btn.classList.add('active');
+
+                    // Show corresponding content
+                    const targetId = btn.getAttribute('data-tab');
+                    const targetContent = document.getElementById(targetId);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+
+                    // Trigger reflow for progress bar animation
+                    if (targetId === 'overview') {
+                        const fills = targetContent.querySelectorAll('.progress-fill');
+                        fills.forEach(fill => {
+                            const width = fill.style.width;
+                            fill.style.width = '0';
+                            setTimeout(() => {
+                                fill.style.width = width;
+                            }, 50);
+                        });
+                    }
+                });
+            });
+
+            // Initial animation trigger
+            setTimeout(() => {
+                const fills = document.querySelectorAll('#overview .progress-fill');
+                fills.forEach(fill => {
+                    const width = fill.style.width;
+                    fill.style.width = '0';
+                    setTimeout(() => {
+                        fill.style.width = width;
+                    }, 50);
+                });
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

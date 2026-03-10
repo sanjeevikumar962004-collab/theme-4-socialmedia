@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Blog</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-header {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .featured-article {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            min-height: 500px;
+            box-shadow: var(--neu-shadow);
+        }
+
+        .featured-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 10s ease;
+        }
+
+        .featured-article:hover .featured-image {
+            transform: scale(1.05);
+        }
+
+        .featured-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 2;
+            padding: var(--spacing-xxl);
+            color: white;
+            max-width: 800px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        /* Recent Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .article-card:hover .article-image {
+            transform: scale(1.05);
+        }
+
+        .article-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .article-content {
+            padding: var(--spacing-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .article-snippet {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .read-more::after {
+            content: '\f061';
+            /* FontAwesome right arrow */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform var(--transition-fast);
+        }
+
+        .article-card:hover .read-more::after {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Navbar -->
+    <header class="navbar glass-panel">
+        <a href="index.html" class="nav-brand">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+        </a>
+
+        <div class="nav-search neu-input-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" class="neu-input" placeholder="Search Stackly...">
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="login.html" class="neu-button primary" style="padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none;">Login</a>
+            <button class="icon-btn" aria-label="Messages">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <div class="user-profile">
+                <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1544005313-94ddf0286df2&output=webp&q=50&af" alt="Profile" class="avatar">
+            </div>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="app-layout-2col">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar-left" id="sidebar-left">
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Feed
+                </a>
+                <a href="reels.html" class="nav-link">
+                    <i class="fas fa-film"></i> Reels
+                </a>
+                <a href="services.html" class="nav-link">
+                    <i class="fas fa-concierge-bell"></i> Services
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="blog.html" class="nav-link active">
+                    <i class="fas fa-newspaper"></i> Blog
+                </a>
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope-open-text"></i> Contact
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <section class="blog-header">
+                <article class="featured-article glass-panel">
+                    <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1542435503-956c469947f6&output=webp&q=50&af"
+                        alt="Featured Article" class="featured-image">
+                    <div class="featured-overlay"></div>
+                    <div class="featured-content">
+                        <span class="tag">Design Trends</span>
+                        <h1 class="featured-title">The Return of Skeuomorphism in 2026? What You Need to Know</h1>
+                        <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-lg);">
+                            Exploring the fine line between neumorphism and the subtle return to tactile, real-world
+                            textures in digital interface design.
+                        </p>
+                        <button class="neu-button primary" style="padding: 0.8rem 1.5rem;">Read Full Article</button>
+                    </div>
+                </article>
+            </section>
+
+            <h2 class="section-title text-primary"><i class="fas fa-stream"
+                    style="font-size: 1.2rem; margin-right: 10px;"></i> Recent Publications</h2>
+
+            <section class="articles-grid">
+
+                <article class="neu-card article-card">
+                    <div class="article-img-wrapper">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1498050108023-c5249f4df085&output=webp&q=50&af"
+                            alt="Tech" class="article-image">
+                    </div>
+                    <div class="article-content">
+                        <span class="tag"
+                            style="background: var(--accent-color); align-self: flex-start;">Engineering</span>
+                        <h3 class="article-title">Optimizing React Rendering at Scale</h3>
+                        <p class="article-snippet">When your component tree grows massive, simple state changes can ruin
+                            performance. Here's our comprehensive guide to fixing it.</p>
+                        <div class="article-meta">
+                            <span class="text-secondary" style="font-size: 0.85rem;">Oct 12 • 5 min read</span>
+                            <span class="read-more">Read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="neu-card article-card">
+                    <div class="article-img-wrapper">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1555066931-4365d14bab8c&output=webp&q=50&af"
+                            alt="Code" class="article-image">
+                    </div>
+                    <div class="article-content">
+                        <span class="tag"
+                            style="background: var(--success-color); align-self: flex-start;">Tutorials</span>
+                        <h3 class="article-title">Vanilla JS is All You Need</h3>
+                        <p class="article-snippet">Forget heavy frameworks for a moment. Let's see how much we can
+                            achieve with pure, unadulterated JavaScript and CSS Variables.</p>
+                        <div class="article-meta">
+                            <span class="text-secondary" style="font-size: 0.85rem;">Oct 10 • 8 min read</span>
+                            <span class="read-more">Read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="neu-card article-card">
+                    <div class="article-img-wrapper">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1522071820081-009f0129c71c&output=webp&q=50&af"
+                            alt="Team" class="article-image">
+                    </div>
+                    <div class="article-content">
+                        <span class="tag" style="align-self: flex-start;">Culture</span>
+                        <h3 class="article-title">Building a Remote-First Culture</h3>
+                        <p class="article-snippet">How providing asynchronous communication tools and trusting your team
+                            leads to unprecedented productivity gains.</p>
+                        <div class="article-meta">
+                            <span class="text-secondary" style="font-size: 0.85rem;">Oct 05 • 4 min read</span>
+                            <span class="read-more">Read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="neu-card article-card">
+                    <div class="article-img-wrapper">
+                        <img src="https://wsrv.nl/?url=images.unsplash.com/photo-1618761714954-0b8cd0026356&output=webp&q=50&af"
+                            alt="Crypto" class="article-image">
+                    </div>
+                    <div class="article-content">
+                        <span class="tag" style="background: #eab308; align-self: flex-start;">Fintech</span>
+                        <h3 class="article-title">Decentralized Finance in 2026</h3>
+                        <p class="article-snippet">An objective look into how smart contracts are finally replacing
+                            traditional escrow services in major transactions.</p>
+                        <div class="article-meta">
+                            <span class="text-secondary" style="font-size: 0.85rem;">Oct 01 • 10 min read</span>
+                            <span class="read-more">Read</span>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" style="height: 40px; width: fit-content;"></a>
+                <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
+                    Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
+                    community.
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-dribbble"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Platform</h4>
+                <a href="index.html">Feed</a>
+                <a href="reels.html">Reels</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#">Explore</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Community Guidelines</a>
+                <a href="#">Help Center</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Stackly Inc. All rights reserved. Designed with Neumorphism aesthetics.
+        </div>
+    </footer>
+
+    <!-- Main Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>

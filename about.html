@@ -208,7 +208,7 @@
     <!-- Sticky Navbar -->
     <header class="navbar glass-panel">
         <a href="index.html" class="nav-brand">
-            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" class="site-logo" style="height: 36px; width: auto; object-fit: contain;">
         </a>
 
         <div class="nav-search neu-input-wrapper">
@@ -277,7 +277,7 @@
 
             <!-- Story Section -->
             <section class="story-section">
-                <h1 class="story-heading">Redefining Digital Connections</h1>
+                <h1 class="story-heading animate-text">Redefining Digital Connections</h1>
                 <p class="text-secondary" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
                     At Stackly, we believe that social media should be a tranquil, aesthetic, and meaningful space.
                     We cut through the noise to bring you closer to what truly matters—authentic interactions, beautiful
@@ -288,10 +288,10 @@
 
             <!-- Timeline Section -->
             <section class="timeline-section">
-                <h2 class="section-title text-center text-primary">Our Evolution</h2>
+                <h2 class="section-title text-center text-primary animate-text">Our Evolution</h2>
                 <div class="timeline">
                     <div class="timeline-item timeline-left">
-                        <div class="timeline-content neu-card">
+                        <div class="timeline-content neu-card animate-card">
                             <h3 class="text-primary">2022</h3>
                             <h4 style="margin-bottom: var(--spacing-sm);">The Alpha Launch</h4>
                             <p class="text-secondary">Stackly began as an invite-only platform focusing on high-fidelity
@@ -299,7 +299,7 @@
                         </div>
                     </div>
                     <div class="timeline-item timeline-right">
-                        <div class="timeline-content neu-card">
+                        <div class="timeline-content neu-card animate-card">
                             <h3 class="text-primary">2024</h3>
                             <h4 style="margin-bottom: var(--spacing-sm);">Introduction of Services</h4>
                             <p class="text-secondary">We rolled out creator tools and ad management, enabling thousands
@@ -307,7 +307,7 @@
                         </div>
                     </div>
                     <div class="timeline-item timeline-left">
-                        <div class="timeline-content neu-card">
+                        <div class="timeline-content neu-card animate-card">
                             <h3 class="text-primary">2026</h3>
                             <h4 style="margin-bottom: var(--spacing-sm);">The Neumorphic Rebirth</h4>
                             <p class="text-secondary">Fully redesigned the interface with glassmorphic elements and dark
@@ -324,7 +324,7 @@
                     future of aesthetic digital interactions.</p>
 
                 <div class="team-grid">
-                    <div class="team-member">
+                    <div class="team-member animate-card">
                         <img src="images/avatar-male-2.webp" alt="Team Member" class="team-avatar">
                         <h3 style="font-family: var(--font-main);">Elena Rostova</h3>
                         <p class="text-secondary" style="font-size: 0.9rem;">CEO & Founder</p>
@@ -333,7 +333,7 @@
                             <button class="icon-btn"><i class="fab fa-linkedin-in"></i></button>
                         </div>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member animate-card">
                         <img src="images/avatar-female-2.webp" alt="Team Member" class="team-avatar">
                         <h3 style="font-family: var(--font-main);">Marcus Wright</h3>
                         <p class="text-secondary" style="font-size: 0.9rem;">Lead UI Engineer</p>
@@ -342,7 +342,7 @@
                             <button class="icon-btn"><i class="fab fa-dribbble"></i></button>
                         </div>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member animate-card">
                         <img src="images/avatar-female-2.webp" alt="Team Member" class="team-avatar">
                         <h3 style="font-family: var(--font-main);">Sarah Jenkins</h3>
                         <p class="text-secondary" style="font-size: 0.9rem;">Head of Community</p>
@@ -361,7 +361,7 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly"
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" class="site-logo"
                         style="height: 40px; width: fit-content;"></a>
                 <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
@@ -404,6 +404,11 @@
         </div>
     </footer>
 
+    <!-- Animation Libraries -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
     <!-- Main Logic -->
     <script src="app.js"></script>
 </body>

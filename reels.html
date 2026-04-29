@@ -43,7 +43,7 @@
     <!-- Sticky Navbar -->
     <header class="navbar glass-panel">
         <a href="index.html" class="nav-brand">
-            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" class="site-logo" style="height: 36px; width: auto; object-fit: contain;">
         </a>
 
         <div class="nav-search neu-input-wrapper">
@@ -126,12 +126,12 @@
 
                     <div class="reel-overlay">
                         <div class="reel-info">
-                            <div class="user-handle">
+                            <div class="user-handle animate-text">
                                 <img src="images/avatar-male-1.webp" alt="User" class="avatar"
                                     style="border-radius: 50%;">
                                 @jessicadesigns
                             </div>
-                            <div class="caption">
+                            <div class="caption animate-fade">
                                 Exploring neumorphism trends in 2026! What do you think? ✨ #design #ui #ux
                             </div>
                             <div class="audio-track">
@@ -170,12 +170,12 @@
 
                     <div class="reel-overlay">
                         <div class="reel-info">
-                            <div class="user-handle">
+                            <div class="user-handle animate-text">
                                 <img src="images/avatar-male-1.webp" alt="User" class="avatar"
                                     style="border-radius: 50%;">
                                 @davidchen_tech
                             </div>
-                            <div class="caption">
+                            <div class="caption animate-fade">
                                 Day in the life of a frontend dev. 💻☕ #tech #coding #vlog
                             </div>
                             <div class="audio-track">
@@ -214,12 +214,12 @@
 
                     <div class="reel-overlay">
                         <div class="reel-info">
-                            <div class="user-handle">
+                            <div class="user-handle animate-text">
                                 <img src="images/avatar-male-2.webp" alt="User" class="avatar"
                                     style="border-radius: 50%;">
                                 @sophieturner.art
                             </div>
-                            <div class="caption">
+                            <div class="caption animate-fade">
                                 Time lapse of my latest digital portrait. 🎨🖌️ #art #timelapse
                             </div>
                             <div class="audio-track">
@@ -256,9 +256,9 @@
                     <i class="fas fa-play play-icon-overlay"></i>
                     <div class="reel-overlay">
                         <div class="reel-info">
-                            <div class="user-handle"><img src="images/avatar-male-3.webp" alt="User" class="avatar"
+                            <div class="user-handle animate-text"><img src="images/avatar-male-3.webp" alt="User" class="avatar"
                                     style="border-radius: 50%;"> @maya_lin</div>
-                            <div class="caption">Finding peace in the city skyline layout. 🌆 #city #vlog</div>
+                            <div class="caption animate-fade">Finding peace in the city skyline layout. 🌆 #city #vlog</div>
                             <div class="audio-track"><i class="fas fa-music"></i> City Lights - Maya</div>
                         </div>
                         <div class="reel-actions">
@@ -279,9 +279,9 @@
                     <i class="fas fa-play play-icon-overlay"></i>
                     <div class="reel-overlay">
                         <div class="reel-info">
-                            <div class="user-handle"><img src="images/avatar-female-3.webp" alt="User" class="avatar"
+                            <div class="user-handle animate-text"><img src="images/avatar-female-3.webp" alt="User" class="avatar"
                                     style="border-radius: 50%;"> @chris_walker</div>
-                            <div class="caption">Testing out the new animation library! 🐇 #animation #testing</div>
+                            <div class="caption animate-fade">Testing out the new animation library! 🐇 #animation #testing</div>
                             <div class="audio-track"><i class="fas fa-music"></i> Demo Track - Free</div>
                         </div>
                         <div class="reel-actions">
@@ -302,7 +302,7 @@
                     <i class="fas fa-play play-icon-overlay"></i>
                     <div class="reel-overlay">
                         <div class="reel-info">
-                            <div class="user-handle"><img src="images/avatar-female-3.webp" alt="User" class="avatar"
+                            <div class="user-handle animate-text"><img src="images/avatar-female-3.webp" alt="User" class="avatar"
                                     style="border-radius: 50%;"> @ethan_h</div>
                             <div class="caption">Fantasy CGI Trailer rendering test. 🐲 #cgi #blender #render</div>
                             <div class="audio-track"><i class="fas fa-music"></i> Epic Trailer Score</div>
@@ -325,7 +325,7 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly"
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" class="site-logo"
                         style="height: 40px; width: fit-content;"></a>
                 <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
@@ -368,6 +368,11 @@
         </div>
     </footer>
 
+    <!-- Animation Libraries -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
     <!-- Main Logic -->
     <script src="app.js"></script>
 </body>

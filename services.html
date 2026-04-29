@@ -110,7 +110,7 @@
     <!-- Sticky Navbar -->
     <header class="navbar glass-panel">
         <a href="index.html" class="nav-brand">
-            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" class="site-logo" style="height: 36px; width: auto; object-fit: contain;">
         </a>
 
         <div class="nav-search neu-input-wrapper">
@@ -182,7 +182,7 @@
         <main class="main-content">
 
             <section class="services-hero">
-                <h1 class="heading-large text-primary">Elevate Your Presence</h1>
+                <h1 class="heading-large text-primary animate-text">Elevate Your Presence</h1>
                 <p class="text-secondary" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
                     Unlock the full potential of your Stackly profile with our premium services. Designed for creators,
                     brands, and trendsetters.
@@ -191,7 +191,7 @@
 
             <section class="services-grid">
 
-                <article class="neu-card service-card">
+                <article class="neu-card service-card animate-card">
                     <i class="fas fa-check-circle service-icon"></i>
                     <h3>Verified Badges</h3>
                     <p class="text-secondary text-center">Stand out in the feed with authenticity. Get the coveted blue
@@ -201,7 +201,7 @@
                     </div>
                 </article>
 
-                <article class="neu-card service-card">
+                <article class="neu-card service-card animate-card">
                     <i class="fas fa-bullhorn service-icon"></i>
                     <h3>Ad Management</h3>
                     <p class="text-secondary text-center">Reach millions of potential followers with an AI-driven ad
@@ -211,7 +211,7 @@
                     </div>
                 </article>
 
-                <article class="neu-card service-card">
+                <article class="neu-card service-card animate-card">
                     <i class="fas fa-hand-holding-usd service-icon"></i>
                     <h3>Creator Monetization</h3>
                     <p class="text-secondary text-center">Allow fans to subscribe to your exclusive content. Direct
@@ -221,7 +221,7 @@
                     </div>
                 </article>
 
-                <article class="neu-card service-card">
+                <article class="neu-card service-card animate-card">
                     <i class="fas fa-chart-line service-icon"></i>
                     <h3>Advanced Analytics</h3>
                     <p class="text-secondary text-center">Dive deep into your audience demographics, impression
@@ -240,7 +240,7 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly"
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" class="site-logo"
                         style="height: 40px; width: fit-content;"></a>
                 <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
@@ -283,6 +283,11 @@
         </div>
     </footer>
 
+    <!-- Animation Libraries -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
     <!-- Main Logic -->
     <script src="app.js"></script>
 </body>

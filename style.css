@@ -89,6 +89,8 @@ body {
     line-height: 1.6;
     transition: background-color var(--transition-normal), color var(--transition-normal);
     overflow-x: hidden;
+    width: 100%;
+    word-wrap: break-word;
 }
 
 h1,
@@ -112,7 +114,7 @@ ol {
     list-style: none;
 }
 
-img {
+img, canvas, svg, video {
     max-width: 100%;
     display: block;
 }
@@ -207,6 +209,22 @@ textarea {
 .neu-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--neu-shadow-hover);
+}
+
+/* Animation Utilities */
+.animate-text, 
+.animate-card,
+.animate-fade {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.split-type-chars {
+    display: inline-block;
+}
+
+.font-kerning-none {
+    font-kerning: none;
 }
 
 .neu-button {
@@ -777,7 +795,7 @@ body.theme-alt {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .navbar {
         padding: 0 var(--spacing-md);
         justify-content: flex-start;
@@ -791,8 +809,17 @@ body.theme-alt {
     .app-layout,
     .app-layout-2col {
         grid-template-columns: 1fr;
-        margin: var(--spacing-md) auto;
-        padding: 0 var(--spacing-md);
+        width: 100%;
+        max-width: 100vw;
+        margin: var(--spacing-md) 0;
+        padding: 0 var(--spacing-sm);
+        min-width: 0;
+    }
+
+    .main-content {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
     }
 
     .sidebar-left {
@@ -807,6 +834,10 @@ body.theme-alt {
     .nav-actions .icon-btn:not(#theme-toggle),
     .nav-actions .user-profile {
         display: none;
+    }
+
+    .neu-card {
+        padding: var(--spacing-md);
     }
 }
 

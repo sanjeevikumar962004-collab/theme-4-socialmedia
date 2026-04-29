@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme) {
         root.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
+        updateLogos(savedTheme);
     } else {
         // Fallback to system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDark) {
             root.setAttribute('data-theme', 'dark');
             updateThemeIcon('dark');
+            updateLogos('dark');
         }
     }
 
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             root.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
+            updateLogos(newTheme);
         });
     }
 
@@ -34,6 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ensure dark mode icon permanently stays as moon
             icon.className = 'fas fa-moon';
         }
+    }
+
+    function updateLogos(theme) {
+        const logos = document.querySelectorAll('.site-logo');
+        const logoSrc = theme === 'dark' ? './whitelogo.webp' : './stackly - Copy.webp';
+        logos.forEach(logo => {
+            logo.src = logoSrc;
+        });
     }
 
     // ---- Mobile Hamburger Menu ----
@@ -71,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check width on resize to reset sidebar styling
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && sidebarLeft) {
+        if (window.innerWidth > 1024 && sidebarLeft) {
             sidebarLeft.style.display = 'block';
             sidebarLeft.style.position = 'sticky';
             sidebarLeft.style.top = 'calc(var(--nav-height) + var(--spacing-lg))';
@@ -81,14 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebarLeft.style.background = 'transparent';
             sidebarLeft.style.boxShadow = 'none';
             sidebarLeft.style.padding = '0';
-        } else if (window.innerWidth <= 768 && sidebarLeft) {
+        } else if (window.innerWidth <= 1024 && sidebarLeft) {
             sidebarLeft.style.display = 'none';
         }
     });
 
     // Close sidebar when clicking outside on mobile
     document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 && sidebarLeft && sidebarLeft.style.display === 'block') {
+        if (window.innerWidth <= 1024 && sidebarLeft && sidebarLeft.style.display === 'block') {
             if (!sidebarLeft.contains(e.target) && !hamburger.contains(e.target)) {
                 closeSidebar();
             }
@@ -256,7 +267,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Preloader Logic
     const preloader = document.querySelector('.earth');
     if (preloader) {
-        const hidePreloader = () => preloader.classList.add('hidden');
+        const hidePreloader = () => {
+            preloader.classList.add('hidden');
+            // Dispatch event for other scripts (like animations) to start
+            window.dispatchEvent(new CustomEvent('preloaderFinished'));
+        };
         // Force preloader to show for at least 2.5 seconds
         setTimeout(() => {
             if (document.readyState === 'complete') {

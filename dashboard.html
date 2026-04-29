@@ -18,6 +18,7 @@
 
         .tab-content.active {
             display: block;
+            width: 100%;
         }
 
         @keyframes fadeIn {
@@ -35,9 +36,10 @@
         /* Metrics */
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: var(--spacing-lg);
             margin-bottom: var(--spacing-xxl);
+            width: 100%;
         }
 
         .metric-card {
@@ -82,11 +84,15 @@
 
         /* Activity Table */
         .activity-table-container {
+            width: 100%;
+            max-width: 100%;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .activity-table {
             width: 100%;
+            min-width: 600px;
             border-collapse: collapse;
             text-align: left;
         }
@@ -142,6 +148,173 @@
             margin-bottom: var(--spacing-xs);
             color: var(--text-secondary);
         }
+
+        /* Responsive Grid Utilities */
+        .responsive-grid-300 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .responsive-grid-350 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 480px) {
+            .metrics-grid, .responsive-grid-300, .responsive-grid-350, .analytics-grid {
+                gap: var(--spacing-md);
+            }
+            .metric-value {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .activity-table th, .activity-table td {
+                padding: var(--spacing-sm);
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+        }
+
+        /* Heatmap */
+        .heatmap-wrapper {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+            scrollbar-width: thin;
+        }
+
+        .heatmap-container {
+            display: grid;
+            grid-template-columns: repeat(53, 1fr);
+            gap: 4px;
+            margin-top: var(--spacing-md);
+            min-width: 700px; /* Ensure it doesn't squash too much */
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            background: var(--shadow-dark);
+            box-shadow: var(--neu-shadow-inset);
+        }
+
+        .heatmap-cell.level-1 { background: rgba(124, 193, 51, 0.2); }
+        .heatmap-cell.level-2 { background: rgba(124, 193, 51, 0.5); }
+        .heatmap-cell.level-3 { background: rgba(124, 193, 51, 0.8); }
+        .heatmap-cell.level-4 { background: var(--primary-color); }
+
+        /* Content List */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .content-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            transition: transform 0.2s;
+        }
+
+        .content-item:hover {
+            transform: translateX(5px);
+            background: rgba(0,0,0,0.02);
+        }
+
+        .content-thumb {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            box-shadow: var(--neu-shadow);
+        }
+
+        /* Analytics Specific */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 992px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: var(--spacing-xl);
+            background: var(--shadow-dark);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--neu-shadow-inset);
+        }
+
+        .chart-bar {
+            width: 30px;
+            background: var(--primary-color);
+            border-radius: 4px 4px 0 0;
+            transition: height 1s ease-out;
+        }
+
+        /* Toggle Switches */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--shadow-dark);
+            transition: .4s;
+            border-radius: 34px;
+            box-shadow: var(--neu-shadow-inset);
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: var(--neu-shadow);
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
     </style>
 </head>
 
@@ -177,7 +350,7 @@
     <!-- Sticky Navbar -->
     <header class="navbar glass-panel">
         <a href="index.html" class="nav-brand">
-            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" class="site-logo" style="height: 36px; width: auto; object-fit: contain;">
         </a>
 
         <div class="nav-search neu-input-wrapper">
@@ -234,12 +407,19 @@
 
             <!-- OVERVIEW TAB -->
             <section id="overview" class="tab-content active">
-                <h2 class="section-title">Welcome back, Alex.</h2>
+                <h2 class="section-title animate-text">Welcome back, Alex.</h2>
                 <p class="text-secondary" style="margin-bottom: var(--spacing-lg);">Here's what is happening with your
                     account today.</p>
 
+                <div class="neu-card animate-card" style="margin-bottom: var(--spacing-lg);">
+                    <h3 style="margin-bottom: var(--spacing-md);">Follower Growth</h3>
+                    <div style="height: 250px;">
+                        <canvas id="followerChart"></canvas>
+                    </div>
+                </div>
+
                 <div class="metrics-grid">
-                    <div class="neu-card metric-card">
+                    <div class="neu-card metric-card animate-card">
                         <div class="metric-header">
                             <span>Total Followers</span>
                             <i class="fas fa-users" style="color: var(--primary-color);"></i>
@@ -249,7 +429,7 @@
                             from last week</div>
                     </div>
 
-                    <div class="neu-card metric-card">
+                    <div class="neu-card metric-card animate-card">
                         <div class="metric-header">
                             <span>Profile Views</span>
                             <i class="fas fa-eye" style="color: var(--accent-color);"></i>
@@ -259,7 +439,7 @@
                             from last week</div>
                     </div>
 
-                    <div class="neu-card metric-card">
+                    <div class="neu-card metric-card animate-card">
                         <div class="metric-header">
                             <span>Engagement Rate</span>
                             <i class="fas fa-fire" style="color: #f59e0b;"></i>
@@ -270,7 +450,7 @@
                     </div>
                 </div>
 
-                <div class="neu-card">
+                <div class="neu-card animate-card">
                     <h3 style="margin-bottom: var(--spacing-md);">Weekly Goals</h3>
 
                     <div style="margin-bottom: var(--spacing-md);">
@@ -283,7 +463,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div style="margin-bottom: var(--spacing-xxl);">
                         <div class="d-flex justify-between" style="margin-bottom: var(--spacing-xs);">
                             <span class="text-secondary">Reach 15k Followers</span>
                             <strong>12.4k / 15k</strong>
@@ -292,16 +472,160 @@
                             <div class="progress-fill" style="width: 82%;"></div>
                         </div>
                     </div>
+
+                    <div class="responsive-grid-300">
+                        <div>
+                            <h4 style="margin-bottom: var(--spacing-sm);">Activity Heatmap</h4>
+                            <div class="heatmap-wrapper">
+                                <div class="heatmap-container" id="heatmap">
+                                    <!-- Generated by JS -->
+                                </div>
+                            </div>
+                            <p class="text-secondary" style="font-size: 0.8rem; margin-top: var(--spacing-sm);">Showing activity for the last 53 weeks.</p>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: var(--spacing-sm);">Top Performing Content</h4>
+                            <div class="content-list">
+                                <div class="content-item">
+                                    <img src="images/post-tech.webp" class="content-thumb" alt="Post">
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600; font-size: 0.9rem;">Modern Web Trends 2026</div>
+                                        <div class="text-secondary" style="font-size: 0.8rem;">2.4k Likes • 128 Comments</div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-secondary"></i>
+                                </div>
+                                <div class="content-item">
+                                    <img src="images/post-design.webp" class="content-thumb" alt="Post">
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 600; font-size: 0.9rem;">Skeuomorphism vs Neumorphism</div>
+                                        <div class="text-secondary" style="font-size: 0.8rem;">1.8k Likes • 95 Comments</div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-secondary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="neu-card animate-card" style="margin-top: var(--spacing-lg);">
+                        <h3 style="margin-bottom: var(--spacing-md);">Recent Activity</h3>
+                        <div class="activity-table-container">
+                            <table class="activity-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Event</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2026-04-28</td>
+                                        <td>New Follower: @johndoe</td>
+                                        <td>Network</td>
+                                        <td><span class="status-badge status-completed">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-04-27</td>
+                                        <td>Post: "Future of AI"</td>
+                                        <td>Content</td>
+                                        <td><span class="status-badge status-completed">Published</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2026-04-26</td>
+                                        <td>Service Request: Verification</td>
+                                        <td>Service</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- ANALYTICS TAB -->
+            <section id="analytics" class="tab-content">
+                <h2 class="section-title animate-text">Deep Insights</h2>
+                <p class="text-secondary" style="margin-bottom: var(--spacing-xl);">Track your performance with real-time data visualization.</p>
+
+                <div class="analytics-grid">
+                    <div class="neu-card animate-card">
+                        <h3 style="margin-bottom: var(--spacing-md);">Engagement Breakdown</h3>
+                        <div style="height: 300px; display: flex; justify-content: center;">
+                            <canvas id="engagementChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="neu-card animate-card">
+                        <h3 style="margin-bottom: var(--spacing-md);">Reach by Post Type</h3>
+                        <div style="height: 300px;">
+                            <canvas id="reachChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- SETTINGS TAB -->
             <section id="settings" class="tab-content">
-                <h2 class="section-title">Account Settings</h2>
+                <h2 class="section-title animate-text">Account Settings</h2>
+                <p class="text-secondary" style="margin-bottom: var(--spacing-xl);">Manage your profile, preferences, and privacy.</p>
 
-               
+                <div class="responsive-grid-350">
+                    <div class="neu-card animate-card">
+                        <h3 style="margin-bottom: var(--spacing-md);">Profile Information</h3>
+                        <form class="settings-form">
+                            <div class="flex-column">
+                                <label>Display Name</label>
+                                <input type="text" class="neu-input" value="Alex Rivera">
+                            </div>
+                            <div class="flex-column">
+                                <label>Email Address</label>
+                                <input type="email" class="neu-input" value="alex.rivera@example.com">
+                            </div>
+                            <div class="flex-column">
+                                <label>Biography</label>
+                                <textarea class="neu-input" rows="3">Digital creator exploring the intersection of art and technology.</textarea>
+                            </div>
+                            <button type="submit" class="neu-button primary" style="align-self: flex-start; margin-top: var(--spacing-sm);">Update Profile</button>
+                        </form>
+                    </div>
+
+                    <div class="flex-column gap-lg">
+                        <div class="neu-card animate-card">
+                            <h3 style="margin-bottom: var(--spacing-md);">Preferences</h3>
+                            <div class="flex-column gap-md">
+                                <div class="d-flex justify-between align-center">
+                                    <span>Push Notifications</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="d-flex justify-between align-center">
+                                    <span>Private Account</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="d-flex justify-between align-center">
+                                    <span>Two-Factor Auth</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="neu-card animate-card">
+                            <h3 style="margin-bottom: var(--spacing-md);">Danger Zone</h3>
+                            <button class="neu-button" style="color: var(--danger-color); border-color: var(--danger-color);">Deactivate Account</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -309,7 +633,7 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly"
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" class="site-logo"
                         style="height: 40px; width: fit-content;"></a>
                 <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
@@ -352,6 +676,12 @@
         </div>
     </footer>
 
+    <!-- Animation Libraries -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="animations.js"></script>
     <!-- Main Logic -->
     <script src="app.js"></script>
     <script>
@@ -399,7 +729,128 @@
                         fill.style.width = width;
                     }, 50);
                 });
+                initHeatmap();
+                initCharts();
             }, 100);
+
+            let charts = {};
+
+            function initCharts() {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                const textColor = isDark ? '#94a3b8' : '#64748b';
+                const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+                const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+
+                // 1. Follower Growth (Line Chart)
+                const ctxFollower = document.getElementById('followerChart').getContext('2d');
+                charts.follower = new Chart(ctxFollower, {
+                    type: 'line',
+                    data: {
+                        labels: ['1 Apr', '5 Apr', '10 Apr', '15 Apr', '20 Apr', '25 Apr', '29 Apr'],
+                        datasets: [{
+                            label: 'Followers',
+                            data: [8200, 8900, 9500, 10200, 11100, 11800, 12400],
+                            borderColor: primaryColor,
+                            backgroundColor: 'rgba(124, 193, 51, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointBackgroundColor: primaryColor
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { grid: { color: gridColor }, ticks: { color: textColor } },
+                            x: { grid: { display: false }, ticks: { color: textColor } }
+                        }
+                    }
+                });
+
+                // 2. Engagement Breakdown (Doughnut)
+                const ctxEngagement = document.getElementById('engagementChart').getContext('2d');
+                charts.engagement = new Chart(ctxEngagement, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Likes', 'Comments', 'Shares'],
+                        datasets: [{
+                            data: [65, 25, 10],
+                            backgroundColor: [primaryColor, '#3b82f6', '#f59e0b'],
+                            borderWidth: 0,
+                            hoverOffset: 10
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: textColor, padding: 20 }
+                            }
+                        }
+                    }
+                });
+
+                // 3. Reach by Type (Bar)
+                const ctxReach = document.getElementById('reachChart').getContext('2d');
+                charts.reach = new Chart(ctxReach, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Posts', 'Reels', 'Stories', 'Videos'],
+                        datasets: [{
+                            label: 'Avg. Impressions',
+                            data: [4500, 12000, 3200, 8500],
+                            backgroundColor: primaryColor,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { grid: { color: gridColor }, ticks: { color: textColor } },
+                            y: { grid: { display: false }, ticks: { color: textColor } }
+                        }
+                    }
+                });
+            }
+
+            // Theme Switch Watcher for Charts
+            const themeObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'data-theme') {
+                        Object.values(charts).forEach(chart => chart.destroy());
+                        initCharts();
+                    }
+                });
+            });
+            themeObserver.observe(document.documentElement, { attributes: true });
+
+            // Handle resize for charts (sidebar toggle etc)
+            window.addEventListener('resize', () => {
+                Object.values(charts).forEach(chart => chart.resize());
+            });
+
+            function initHeatmap() {
+                const heatmap = document.getElementById('heatmap');
+                if (!heatmap) return;
+                
+                // Generate 53 weeks * 7 days of activity cells
+                heatmap.innerHTML = ''; // Clear previous
+                for (let i = 0; i < 371; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'heatmap-cell';
+                    // Random levels for demo
+                    const level = Math.floor(Math.random() * 5);
+                    if (level > 0) cell.classList.add(`level-${level}`);
+                    heatmap.appendChild(cell);
+                }
+            }
         });
     </script>
 </body>

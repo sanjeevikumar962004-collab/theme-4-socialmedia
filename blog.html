@@ -191,7 +191,7 @@
     <!-- Sticky Navbar -->
     <header class="navbar glass-panel">
         <a href="index.html" class="nav-brand">
-            <img src="./stackly - Copy.webp" alt="Stackly Logo" style="height: 36px; width: auto; object-fit: contain;">
+            <img src="./stackly - Copy.webp" alt="Stackly Logo" class="site-logo" style="height: 36px; width: auto; object-fit: contain;">
         </a>
 
         <div class="nav-search neu-input-wrapper">
@@ -255,7 +255,7 @@
                     <div class="featured-overlay"></div>
                     <div class="featured-content">
                         <span class="tag">Design Trends</span>
-                        <h1 class="featured-title">The Return of Skeuomorphism in 2026? What You Need to Know</h1>
+                        <h1 class="featured-title animate-text">The Return of Skeuomorphism in 2026? What You Need to Know</h1>
                         <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-lg);">
                             Exploring the fine line between neumorphism and the subtle return to tactile, real-world
                             textures in digital interface design.
@@ -270,7 +270,7 @@
 
             <section class="articles-grid">
 
-                <article class="neu-card article-card">
+                <article class="neu-card article-card animate-card">
                     <div class="article-img-wrapper">
                         <img src="images/post-code.webp" alt="Tech" class="article-image">
                     </div>
@@ -287,7 +287,7 @@
                     </div>
                 </article>
 
-                <article class="neu-card article-card">
+                <article class="neu-card article-card animate-card">
                     <div class="article-img-wrapper">
                         <img src="images/post-tech.webp" alt="Code" class="article-image">
                     </div>
@@ -304,7 +304,7 @@
                     </div>
                 </article>
 
-                <article class="neu-card article-card">
+                <article class="neu-card article-card animate-card">
                     <div class="article-img-wrapper">
                         <img src="images/avatar-male-3.webp" alt="Team" class="article-image">
                     </div>
@@ -320,7 +320,7 @@
                     </div>
                 </article>
 
-                <article class="neu-card article-card">
+                <article class="neu-card article-card animate-card">
                     <div class="article-img-wrapper">
                         <img src="images/post-design.webp" alt="Crypto" class="article-image">
                     </div>
@@ -345,7 +345,7 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly"
+                <a href="index.html"><img src="./stackly - Copy.webp" alt="Stackly" class="site-logo"
                         style="height: 40px; width: fit-content;"></a>
                 <p class="text-secondary" style="font-size: 0.9rem; margin-top: var(--spacing-sm);">
                     Your premium hub for creative networking, sharing ideas, and connecting with the modern tech
@@ -388,6 +388,11 @@
         </div>
     </footer>
 
+    <!-- Animation Libraries -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js"></script>
     <!-- Main Logic -->
     <script src="app.js"></script>
 </body>
